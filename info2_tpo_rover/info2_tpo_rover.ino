@@ -14,17 +14,17 @@ char alerta;
 // serial para debug => Serial.
 //#define BAUDRATE 38400
 #define BAUDRATE 9600
+char bufferSerie;
 
 // ESTADOS == MENSAJES  
-#define ESPERANDO 127
+#define ESPERANDO 127 
 #define ADELANTE 63
 #define ATRAS 126
 #define IZQUIERDA 31
 #define DERECHA 125
 #define ALERTA 62
 
-#define TIMEOUT 40 // 2 segundos
-unsigned int bufferSerie;
+#define TIMEOUT 20 // 1 segundo
 
 void setup() {  
 

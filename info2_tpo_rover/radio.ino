@@ -20,7 +20,7 @@ bool radioNumber = 1;
 byte addresses[][6] = {"Base","Rover"};
 
 #define BEACON 40 // 2 segundos
- 
+
 void setupRadio() {
   Serial.println("Iniciando Radio...");
   
@@ -72,10 +72,14 @@ int recibir() { //Devuelve -1 si no hubo comunicacion, 1 si recibio datos
     timeout = 0;
         
     while ( radio.available() ) {
-      radio.read( &bufferSerie, sizeof(bufferSerie) );        
-      Serial.print(F("Obtuve: "));
-      Serial.println(bufferSerie); }
       
-    return 1;
+      radio.read( &bufferSerie, sizeof(bufferSerie) );        
+      
+      if (bufferSerie != 0) {
+        Serial.print(F("Obtuve: "));
+        Serial.println(bufferSerie); 
+        return 1;   
+      } 
     }
+  }
 }
